@@ -20,3 +20,15 @@
     dest: ~/.bash_profile
 
 
+- name: Create a directory if it does not exist
+  file:
+    path: /Users/aghaffar/Downloads/screenshots
+    state: directory
+    mode: '0755'
+
+- name: Change location for screenshots
+  shell: "{{ item }}"
+  become: yes
+  with_items:
+    - defaults write com.apple.screencapture location /Users/aghaffar/Downloads/screenshots/
+    - killall SystemUIServer
