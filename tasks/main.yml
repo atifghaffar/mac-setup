@@ -8,3 +8,9 @@
     - defaults write com.apple.dock no-bouncing -bool TRUE 
     - killall Dock
 
+- name: Copy git config
+  copy:
+    src: gitconfig
+    dest: ~/.gitconfig
+
+
