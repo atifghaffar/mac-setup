@@ -14,3 +14,9 @@
     dest: ~/.gitconfig
 
 
+- name: Copy bash profile
+  copy:
+    src: .bash_profile
+    dest: ~/.bash_profile
+
+
