@@ -1,2 +1,19 @@
 ---
 # defaults file for mac-setup
+
+projects: 
+  
+  'next':
+    dir: worldsoft/next
+    git: git@git.assembla.com:worldsoft-developement.next.git
+    branch: master
+  
+  'ws_cms_helper':    
+    dir: worldsoft/ws-cms-helper
+    git: git@git.assembla.com:worldsoft-developement.ws_cms_helper.git
+    branch: master
+
+  'ws-atmail-proxy':    
+    dir: worldsoft/ws-atmail-proxy
+    git: git@git.assembla.com:worldsoft-everyware.ws_atmail_proxy.git
+    branch: master

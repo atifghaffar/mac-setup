@@ -1,18 +1,5 @@
 ---
 # tasks file for mac-setup
-- name: Hide Dock completely
-  shell: "{{ item }}"
-  with_items:
-    - defaults write com.apple.dock autohide -bool true 
-    - defaults write com.apple.dock autohide-delay -float 1000
-    - defaults write com.apple.dock no-bouncing -bool TRUE 
-    - killall Dock
-
-- name: Copy git config
-  copy:
-    src: gitconfig
-    dest: ~/.gitconfig
-
 
 - name: Copy bash profile
   copy:
@@ -20,15 +7,54 @@
     dest: ~/.bash_profile
 
 
-- name: Create a directory if it does not exist
-  file:
-    path: /Users/aghaffar/Downloads/screenshots
-    state: directory
-    mode: '0755'
+- name: Create directories
+  file: path={{item}} state=directory mode=0755
+  with_items:
+    - /Users/aghaffar/Downloads/screenshots
+    - /Users/aghaffar/projects/worldsoft
+    - /Users/aghaffar/projects/wa
+
+- name: Copy git config
+  copy:
+    src: gitconfig
+    dest: ~/.gitconfig
+
+- name: Copy apache config
+  copy:
+    src: httpd.conf
+    dest: /usr/local/etc/httpd/httpd.conf
+
+
+
+# install all projects
+- name: git clone projects
+  git:
+    repo: "{{ item.value.git }}"
+    dest: "/Users/aghaffar/projects/{{ item.value.dir }}"
+    version: "{{ item.value.branch }}"
+    update: no
+    accept_hostkey: yes
+    key_file: "/Users/aghaffar/.ssh/id_rsa"
+  with_dict: "{{ projects }}"
+
+
+
+
+
+- name: Hide Dock completely
+  shell: "{{ item }}"
+  with_items:
+    - defaults write com.apple.dock autohide -bool true 
+    - defaults write com.apple.dock autohide-delay -float 1000
+    - defaults write com.apple.dock no-bouncing -bool TRUE 
+    - killall Dock
+  tags: ['never', 'dock']
+
+
+
 
 - name: Change location for screenshots
   shell: "{{ item }}"
-  become: yes
   with_items:
     - defaults write com.apple.screencapture location /Users/aghaffar/Downloads/screenshots/
     - killall SystemUIServer
