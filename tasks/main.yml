@@ -11,6 +11,11 @@
     dest: ~/.bash_profile
 
 
+- name: Copy mysql config
+  copy:
+    src: .my.cnf
+    dest: ~/.my.cnf
+
 - name: Create directories
   file: path={{item}} state=directory mode=0755
   with_items:
