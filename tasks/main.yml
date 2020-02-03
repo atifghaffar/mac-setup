@@ -1,6 +1,10 @@
 ---
 # tasks file for mac-setup
 
+- cpanm:
+    name: YAML::XS
+    system_lib: yes
+
 - name: Copy bash profile
   copy:
     src: .bash_profile
