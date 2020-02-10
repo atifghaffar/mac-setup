@@ -22,4 +22,3 @@ projects:
     dir: worldsoft/ws-atmail-tools
     git: git@git.assembla.com:worldsoft-everyware.ws_atmail_tools.git
     branch: master
-	
