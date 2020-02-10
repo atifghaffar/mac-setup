@@ -17,3 +17,9 @@ projects:
     dir: worldsoft/ws-atmail-proxy
     git: git@git.assembla.com:worldsoft-everyware.ws_atmail_proxy.git
     branch: master
+
+  'ws-atmail-tools':    
+    dir: worldsoft/ws-atmail-tools
+    git: git@git.assembla.com:worldsoft-everyware.ws_atmail_tools.git
+    branch: master
+	

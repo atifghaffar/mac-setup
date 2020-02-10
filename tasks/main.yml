@@ -1,6 +1,16 @@
 ---
 # tasks file for mac-setup
 
+- name: ensure Node packages are present
+  npm: name={{ item }} global=yes
+  with_items:
+    - bower 
+    - less 
+    - uglify 
+    - uglify-js 
+    - node-sass
+
+
 - cpanm:
     name: YAML::XS
     system_lib: yes
