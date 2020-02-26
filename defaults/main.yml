@@ -3,6 +3,11 @@
 
 projects: 
   
+  'shell-environment':
+    dir: shell-environment
+    git: git@bitbucket.org:atifghaffar/shell-environment.git
+    branch: master
+
   'next':
     dir: worldsoft/next
     git: git@git.assembla.com:worldsoft-developement.next.git
@@ -22,3 +27,10 @@ projects:
     dir: worldsoft/ws-atmail-tools
     git: git@git.assembla.com:worldsoft-everyware.ws_atmail_tools.git
     branch: master
+
+  'ws-consul-agent':    
+    dir: worldsoft/ws-consul-agent
+    git: git@git.assembla.com:worldsoft-everyware.ws_consul_agent.git
+    branch: master
+
+
