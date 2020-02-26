@@ -15,6 +15,11 @@
     name: YAML::XS
     system_lib: yes
 
+- cpanm:
+    name: DBD::mysql
+    system_lib: yes
+    notest: yes
+
 - name: Copy bash profile
   copy:
     src: .bash_profile
