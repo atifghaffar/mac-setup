@@ -15,6 +15,15 @@
     name: YAML::XS
     system_lib: yes
 
+
+# before doing this, the /usr/local/bin/mysql_config should be changed with a patch like this
+#-libs="-L$pkglibdir  -lmariadb -lz -liconv -lssl -lcrypto"
+#+libs="-L$pkglibdir -L/usr/local/opt/openssl@1.1/lib -lmariadb -lz -liconv -lssl -lcrypto"
+
+ 
+#-include="-I$pkgincludedir"
+#+include="-I$pkgincludedir -I/usr/local/Cellar/openssl@1.1/include"
+
 - cpanm:
     name: DBD::mysql
     system_lib: yes
