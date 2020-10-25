@@ -91,3 +91,11 @@
   with_items:
     - defaults write com.apple.screencapture location /Users/aghaffar/Downloads/screenshots/
     - killall SystemUIServer
+
+- name: Setup a cron to backup
+  cron:
+    user: aghaffar
+    name: "backup2rsync"
+    minute: "00"
+    hour: "*"
+    job: "/usr/bin/perl /Users/aghaffar/projects/mac-setup/files/bin/backup2rsync.net.pl"
